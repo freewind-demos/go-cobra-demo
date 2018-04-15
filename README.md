@@ -23,3 +23,18 @@ This is a very simple demo for cobra, you can see more at: https://github.com/sp
   Use "go-cobra-demo [command] --help" for more information about a command.
 
 ```
+
+Debug in editor
+---------------
+
+One way is to add commands to "Rub/Debug configuration" -> "Program arguments"
+
+Another is add code before `cmd.Execute()` in `main.go`:
+
+```
+func main() {
+    os.Args = append(os.Args, "version") // Add command here!
+	cmd.Execute()
+}
+
+```
